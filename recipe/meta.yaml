@@ -10,7 +10,7 @@ source:
   sha256: aafda6ed02beac20abc3ae22f0873155acaa1a487478b2bf929d5437b837ee37
 
 build:
-  number: 1000
+  number: 1001
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
@@ -23,7 +23,7 @@ requirements:
     - setuptools
 
   run:
-    - cachecontrol >=0.11.7
+    - cachecontrol >=0.11.7,<0.12
     - lockfile >=0.9
     - mistune >=0.8.1
     - python
