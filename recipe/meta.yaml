@@ -24,7 +24,7 @@ requirements:
 
   run:
     - python
-    - cachecontrol >=0.11.7,<0.12  # [py<3]
+    - cachecontrol >=0.11.7,<0.12
     - lockfile >=0.9
     - mistune >=0.8.1,<0.9
     - rdflib >=4.2.2,<4.3.0
