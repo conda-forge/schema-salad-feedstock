@@ -29,7 +29,7 @@ requirements:
     - mistune >=0.8.1,<0.9
     - rdflib >=4.2.2,<4.3.0
     - rdflib-jsonld >=0.3.0,<0.5.0  # [py<3.6]
-    - requests >=1.0  # [py<3]
+    - requests >=1.0
     - ruamel.yaml >=0.12.4,<0.16
     - setuptools
     - six >=1.8.0
