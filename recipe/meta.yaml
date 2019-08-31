@@ -35,7 +35,7 @@ requirements:
     - six >=1.8.0
     - typing >=3.6.4  # [py!=37]
     - typing_extensions
-    - future  # [py3k]
+    - future
 
 test:
   imports:
