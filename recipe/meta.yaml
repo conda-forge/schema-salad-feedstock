@@ -1,5 +1,5 @@
 {% set name = "schema-salad" %}
-{% set version = "4.1.20190305210046" %}
+{% set version = "4.5.20190815125611" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: dec809626f215ded7bde4c186f7683062dc586b93572852c289ebdd5667fe86d
+  sha256: 4af2c0cb6e473784d42ab76068392ae0397ee3c68cb8a68fa1f4a15c8f36bd89
 
 build:
   number: 0
@@ -33,9 +33,9 @@ requirements:
     - ruamel.yaml >=0.12.4,<0.16
     - setuptools
     - six >=1.8.0
-    - typing >=3.6.4  # [py!=37]
+    - typing >=3.7.4  # [py!=37]
     - typing_extensions
-    - future  # [py3k]
+    - future
 
 test:
   imports:
