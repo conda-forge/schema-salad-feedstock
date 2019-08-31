@@ -33,7 +33,7 @@ requirements:
     - ruamel.yaml >=0.12.4,<0.16
     - setuptools
     - six >=1.8.0
-    - typing >=3.6.4  # [py!=37]
+    - typing >=3.7.4  # [py!=37]
     - typing_extensions
     - future
 
