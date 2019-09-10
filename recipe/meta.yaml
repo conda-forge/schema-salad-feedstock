@@ -1,5 +1,5 @@
 {% set name = "schema-salad" %}
-{% set version = "4.5.20190815125611" %}
+{% set version = "4.5.20190906201758" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4af2c0cb6e473784d42ab76068392ae0397ee3c68cb8a68fa1f4a15c8f36bd89
+  sha256: 273207632654d70bfb9488cad45649d6895a6314bd27c68a13a048325a40495a
 
 build:
   number: 0
