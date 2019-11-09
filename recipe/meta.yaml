@@ -1,12 +1,11 @@
-{% set name = "schema-salad" %}
 {% set version = "4.5.20191023134839" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: schema-salad
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
   sha256: 8ccd649c0431bef071812548186e22d5512ef570863e950edeeee76aa12fa4e3
 
 build:
@@ -14,28 +13,26 @@ build:
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   host:
     - python
     - pip
-    - setuptools
-
   run:
     - python
-    - cachecontrol >=0.11.7,<0.12
-    - lockfile >=0.9
-    - mistune >=0.8.1,<0.9
+    - setuptools
+    - requests >=1.0
+    - ruamel.yaml >=0.12.4,<=0.16
     - rdflib >=4.2.2,<4.3.0
     - rdflib-jsonld >=0.3.0,<0.5.0
-    - requests >=1.0
-    - ruamel.yaml >=0.12.4
-    - setuptools
+    - mistune >=0.8.1,<0.9
+    - cachecontrol >=0.11.7,<0.12
+    - lockfile >=0.9
     - six >=1.8.0
-    - typing >=3.7.4  # [py<35]
     - typing_extensions
     - future
+    - typing >=3.7.4  # [py<35]
 
 test:
   requires:
@@ -50,7 +47,7 @@ test:
 
 about:
   home: https://github.com/common-workflow-language/schema_salad
-  license: Apache Software
+  license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE.txt
   summary: Schema Annotations for Linked Avro Data (SALAD)
