@@ -12,7 +12,7 @@ source:
     - 0001-Workaround-for-pytest-realpath-issue-on-Python-3.8-and-Windows.patch
 
 build:
-  skip: true  # [py2k]
+  skip: True  # [py<30]
   number: 0
   entry_points:
     - schema-salad-tool=schema_salad.main:main
@@ -27,16 +27,13 @@ requirements:
     - python
     - setuptools
     - requests >=1.0
-    - ruamel.yaml >=0.12.4,<0.16  # [py<=37]
-    - ruamel.yaml >=0.12.4,<=0.16  # [py>37]
+    - ruamel.yaml >=0.12.4,<=0.16
     - rdflib >=4.2.2,<4.3.0
     - rdflib-jsonld >=0.3.0,<0.5.0
     - mistune >=0.8.1,<0.9
     - cachecontrol >=0.11.7,<0.12
     - lockfile >=0.9
-    - six >=1.8.0
     - typing_extensions
-    - future
     - typing >=3.7.4  # [py<35]
 
 test:
