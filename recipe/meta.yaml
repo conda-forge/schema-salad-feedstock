@@ -10,6 +10,7 @@ source:
   patches:
     # Workaround for https://github.com/pytest-dev/pytest/issues/6489
     - 0001-Workaround-for-pytest-realpath-issue-on-Python-3.8-and-Windows.patch
+    - 0002-Allow-all-ruamel.yaml-0.16-versions-in-setup.py.patch
 
 build:
   skip: True  # [py<30]
