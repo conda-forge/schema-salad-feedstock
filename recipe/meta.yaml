@@ -10,7 +10,6 @@ source:
   patches:
     # Workaround for https://github.com/pytest-dev/pytest/issues/6489
     - 0001-Workaround-for-pytest-realpath-issue-on-Python-3.8-and-Windows.patch
-    - 0002-Allow-all-ruamel.yaml-0.16-versions-in-setup.py.patch
 
 build:
   skip: True  # [py<30]
@@ -30,7 +29,7 @@ requirements:
     - requests >=1.0
     # Avoid ruamel.yaml >=0.16,<0.16.5 due to builds with broken dependency.
     # ref: https://github.com/conda-forge/ruamel.yaml-feedstock/pull/117
-    - ruamel.yaml >=0.12.4,<0.16|>=0.16.5,<0.17.0a0
+    - ruamel.yaml >=0.12.4,<0.16|0.16.5.*
     - rdflib >=4.2.2,<4.3.0
     - rdflib-jsonld >=0.3.0,<0.5.0
     - mistune >=0.8.1,<0.9
