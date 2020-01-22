@@ -1,56 +1,58 @@
-{% set name = "schema-salad" %}
-
 {% set version = "5.0.20200105154004" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: schema-salad
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
   sha256: cdcef470a36eb047fc98bcebb08ba5f93f64ba0b2e27bad009f98ebc3810ac12
-
+  patches:
+    # Workaround for https://github.com/pytest-dev/pytest/issues/6489
+    - 0001-Workaround-for-pytest-realpath-issue-on-Python-3.8-and-Windows.patch
+    - 0002-Allow-all-ruamel.yaml-0.16-versions-in-setup.py.patch
 
 build:
-  skip: true  # [py2k]
+  skip: True  # [py<30]
   number: 0
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   host:
     - python
     - pip
-    - setuptools
-
   run:
     - python
-    - cachecontrol >=0.11.7,<0.12
-    - lockfile >=0.9
-    - mistune >=0.8.1,<0.9
+    - setuptools
+    - requests >=1.0
+    # Avoid ruamel.yaml >=0.16,<0.16.5 due to builds with broken dependency.
+    # ref: https://github.com/conda-forge/ruamel.yaml-feedstock/pull/117
+    - ruamel.yaml >=0.12.4,<0.16|>=0.16.5,<0.17.0a0
     - rdflib >=4.2.2,<4.3.0
     - rdflib-jsonld >=0.3.0,<0.5.0
-    - requests >=1.0
-    - ruamel.yaml >=0.12.4,<0.16
-    - setuptools
-    - six >=1.8.0
-    - typing >=3.7.4  # [py<35]
+    - mistune >=0.8.1,<0.9
+    - cachecontrol >=0.11.7,<0.12
+    - lockfile >=0.9
     - typing_extensions
-    - future
+    - typing >=3.7.4  # [py<35]
 
 test:
+  requires:
+    - pytest <5
   imports:
     - schema_salad
     - schema_salad.tests
   commands:
     - schema-salad-tool --help
     - schema-salad-doc --help
+    - python -m pytest --pyargs schema_salad
 
 about:
   home: https://github.com/common-workflow-language/schema_salad
-  license: Apache Software
+  license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE.txt
   summary: Schema Annotations for Linked Avro Data (SALAD)
