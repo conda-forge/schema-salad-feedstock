@@ -12,7 +12,7 @@ source:
     - 0001-Workaround-for-pytest-realpath-issue-on-Python-3.8-and-Windows.patch
 
 build:
-  skip: true  # [py<30]
+  noarch: python
   number: 1
   entry_points:
     - schema-salad-tool=schema_salad.main:main
@@ -21,10 +21,10 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.5
     - pip
   run:
-    - python
+    - python >=3.0
     - setuptools
     - requests >=1.0
     # Avoid ruamel.yaml >=0.16,<0.16.5 due to builds with broken dependency.
