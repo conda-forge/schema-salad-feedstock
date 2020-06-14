@@ -21,10 +21,10 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.6
     - pip
   run:
-    - python >=3.5
+    - python >=3.6
     - setuptools
     - requests >=1.0
     # Avoid ruamel.yaml >=0.16,<0.16.5 due to builds with broken dependency.
@@ -36,7 +36,6 @@ requirements:
     - cachecontrol >=0.11.7,<0.12
     - lockfile >=0.9
     - typing_extensions
-    - typing >=3.7.4  # [py<35]
 
 test:
   requires:
