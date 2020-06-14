@@ -13,7 +13,7 @@ source:
 
 build:
   skip: true  # [py<30]
-  number: 0
+  number: 1
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
