@@ -12,8 +12,8 @@ source:
     - 0001-Workaround-for-pytest-realpath-issue-on-Python-3.8-and-Windows.patch
 
 build:
-  skip: true  # [py<30]
-  number: 0
+  noarch: python
+  number: 1
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
@@ -21,22 +21,21 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
     - setuptools
     - requests >=1.0
     # Avoid ruamel.yaml >=0.16,<0.16.5 due to builds with broken dependency.
     # ref: https://github.com/conda-forge/ruamel.yaml-feedstock/pull/117
     - ruamel.yaml >=0.12.4,<0.16|0.16.5.*
     - rdflib >=4.2.2,<4.3.0
-    - rdflib-jsonld >=0.3.0,<0.5.0
+    - rdflib-jsonld >=0.3.0,<0.6.0
     - mistune >=0.8.1,<0.9
     - cachecontrol >=0.11.7,<0.12
     - lockfile >=0.9
     - typing_extensions
-    - typing >=3.7.4  # [py<35]
 
 test:
   requires:
