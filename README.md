@@ -5,11 +5,11 @@ Home: https://github.com/common-workflow-language/schema_salad
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/schema-salad-feedstock/blob/master/LICENSE.txt)
 
 Summary: Schema Annotations for Linked Avro Data (SALAD)
 
-
+Development: https://github.com/common-workflow-language/schema_salad
 
 Current build status
 ====================
