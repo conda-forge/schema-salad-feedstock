@@ -1,4 +1,4 @@
-{% set version = "7.1.20210611090601" %}
+{% set version = "8.0.20210624101613" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: 090f2680d90c4f3cfd212738eda241f360f98137d3bc1ddb6c52bdcebe89424f
+  sha256: 44bd2c43a3981c015b119cdbe3385d1b6f62a444f15677690bc861ea8eaca9bb
   patches:
     # Workaround for https://github.com/pytest-dev/pytest/issues/6489
     - 0001-Workaround-for-pytest-realpath-issue-on-Python-3.8-and-Windows.patch
