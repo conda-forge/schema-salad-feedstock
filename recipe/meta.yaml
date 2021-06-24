@@ -11,6 +11,7 @@ source:
 build:
   noarch: python
   number: 0
+  skip: true # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
