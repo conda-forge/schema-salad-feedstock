@@ -9,9 +9,8 @@ source:
   sha256: a4f3044ad979dd850418fbd826257bcd6201a6a8c1f93e20402218d6adaf3814
 
 build:
-  noarch: python
   number: 1
-  skip: true # [py2k or win]
+  skip: true  # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
@@ -19,10 +18,10 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
   run:
-    - python >=3.6
+    - python
     - setuptools
     - requests >=1.0
     - ruamel.yaml >=0.12.4,<0.18|0.16.5.*
