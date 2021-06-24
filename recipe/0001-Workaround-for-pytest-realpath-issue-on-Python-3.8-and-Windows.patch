@@ -1,9 +1,0 @@
---- schema_salad/tests/util.py
-+++ schema_salad/tests/util.py
-@@ -13,5 +13,5 @@
-     except ResolutionError:
-         pass
-     if not filepath or not os.path.isfile(filepath):
--        filepath = os.path.join(os.path.dirname(__file__), os.pardir, filename)
-+        filepath = os.path.join(os.path.dirname(os.path.normcase(__file__)), os.pardir, filename)
-     return filepath

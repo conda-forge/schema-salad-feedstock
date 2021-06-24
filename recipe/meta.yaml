@@ -7,9 +7,6 @@ package:
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
   sha256: a4f3044ad979dd850418fbd826257bcd6201a6a8c1f93e20402218d6adaf3814
-  patches:
-    # Workaround for https://github.com/pytest-dev/pytest/issues/6489
-    - 0001-Workaround-for-pytest-realpath-issue-on-Python-3.8-and-Windows.patch
 
 build:
   noarch: python
