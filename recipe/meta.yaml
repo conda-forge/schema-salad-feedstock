@@ -14,12 +14,18 @@ build:
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: SCHEMA_SALAD_USE_MYPYC=1 MYPYPATH=typeshed {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
     - python
     - pip
+    - mypy
+    - {{ compiler('c') }}  # for mypyc
+    - types-pkg_resources
+    - types-requests
+    - ruamel.yaml >=0.15.99,<0.18|0.16.5.*
+      # ruamel.yaml 0.15.99 has py.typed, which mypyc needs
   run:
     - python
     - setuptools
@@ -56,3 +62,4 @@ extra:
     - croth1
     - chapmanb
     - pvanheus
+    - mr-c
