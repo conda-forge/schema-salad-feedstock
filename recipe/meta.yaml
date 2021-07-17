@@ -1,4 +1,4 @@
-{% set version = "8.1.20210627200047" %}
+{% set version = "8.1.20210716111910" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: e2f4d6eadb060f3d88372bb4bdefb7c22eb4b191c2657a8a82183d100148fac5
+  sha256: 3f851b385d044c58d359285ba471298b6199478a4978f892a83b15cbfb282f25
 
 build:
   number: 0
@@ -17,20 +17,22 @@ build:
   script: SCHEMA_SALAD_USE_MYPYC=1 MYPYPATH=typeshed {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
+  build:
+    - {{ compiler('c') }}  # for mypyc
   host:
     - python
     - pip
-    - mypy
-    - {{ compiler('c') }}  # for mypyc
+    - mypy  # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-pkg_resources
     - types-requests
-    - ruamel.yaml >=0.15.99,<0.18|0.16.5.*
-      # ruamel.yaml 0.15.99 has py.typed, which mypyc needs
+    - ruamel.yaml >=0.15.99,<0.18|0.16.6.*
+      # ruamel.yaml is needed for the type hints
+      # the newer version: 0.15.99 has py.typed, which mypyc needs
   run:
     - python
     - setuptools
     - requests >=1.0
-    - ruamel.yaml >=0.12.4,<0.18|0.16.5.*
+    - ruamel.yaml >=0.12.4,<0.18|0.16.6.*
     - rdflib >=4.2.2,<=5.0.0
     - rdflib-jsonld >=0.3.0,<0.6.0
     - mistune >=0.8.1,<0.9
