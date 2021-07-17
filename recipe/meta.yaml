@@ -17,20 +17,22 @@ build:
   script: SCHEMA_SALAD_USE_MYPYC=1 MYPYPATH=typeshed {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
+  build:
+    - {{ compiler('c') }}  # for mypyc
   host:
     - python
     - pip
-    - mypy
-    - {{ compiler('c') }}  # for mypyc
+    - mypy  # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-pkg_resources
     - types-requests
-    - ruamel.yaml >=0.15.99,<0.18|0.16.5.*
-      # ruamel.yaml 0.15.99 has py.typed, which mypyc needs
+    - ruamel.yaml >=0.15.99,<0.18|0.16.6.*
+      # ruamel.yaml is needed for the type hints
+      # the newer version: 0.15.99 has py.typed, which mypyc needs
   run:
     - python
     - setuptools
     - requests >=1.0
-    - ruamel.yaml >=0.12.4,<0.18|0.16.5.*
+    - ruamel.yaml >=0.12.4,<0.18|0.16.6.*
     - rdflib >=4.2.2,<=5.0.0
     - rdflib-jsonld >=0.3.0,<0.6.0
     - mistune >=0.8.1,<0.9
