@@ -28,6 +28,7 @@ requirements:
     - ruamel.yaml >=0.15.99,<0.18|0.16.6.*
       # ruamel.yaml is needed for the type hints
       # the newer version: 0.15.99 has py.typed, which mypyc needs
+    - black  # also needed for type hints
   run:
     - python
     - setuptools
@@ -40,6 +41,7 @@ requirements:
     - cachecontrol >=0.11.7,<0.13
     - lockfile >=0.9
     - typing_extensions
+    - black
 
 test:
   requires:
