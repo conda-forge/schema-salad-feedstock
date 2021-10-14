@@ -1,4 +1,4 @@
-{% set version = "8.2.20210918131710" %}
+{% set version = "8.2.20211014150008" %}
 
 package:
   name: schema-salad
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: 464180407f49a3533cd5a5bc7db9254769bc77595ea00562bbe4a50493f7f445
+  sha256: 9d6340138c262530295a7927c6b75a2407a2d54b361b2f4437dd3be4a73aa2a1
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
@@ -28,6 +28,7 @@ requirements:
     - ruamel.yaml >=0.15.99,<0.18|0.16.6.*
       # ruamel.yaml is needed for the type hints
       # the newer version: 0.15.99 has py.typed, which mypyc needs
+    - black  # also needed for type hints
   run:
     - python
     - setuptools
@@ -40,6 +41,7 @@ requirements:
     - cachecontrol >=0.11.7,<0.13
     - lockfile >=0.9
     - typing_extensions
+    - black
 
 test:
   requires:
