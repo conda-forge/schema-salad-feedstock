@@ -22,7 +22,7 @@ requirements:
   host:
     - python
     - pip
-    - mypy  # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy >=0.910 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-pkg_resources
     - types-requests
     - ruamel.yaml >=0.15.99,<0.18|0.16.6.*
