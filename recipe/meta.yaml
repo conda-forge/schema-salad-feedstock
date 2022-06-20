@@ -24,6 +24,9 @@ requirements:
     - types-pkg_resources                    # [build_platform != target_platform]
     - types-requests                         # [build_platform != target_platform]
     - types-dataclasses                      # [build_platform != target_platform]
+    - black                                  # [build_platform != target_platform]
+    - setuptools                             # [build_platform != target_platform]
+    - ruamel.yaml >=0.15.99,<0.18|0.16.6.*   # [build_platform != target_platform]
     - {{ compiler('c') }}  # for mypyc
   host:
     - python
