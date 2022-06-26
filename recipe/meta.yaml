@@ -21,12 +21,12 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - mypy ==0.961                           # [build_platform != target_platform]
-    - types-pkg_resources                    # [build_platform != target_platform]
-    - types-requests                         # [build_platform != target_platform]
-    - types-dataclasses                      # [build_platform != target_platform]
-    - black                                  # [build_platform != target_platform]
+    - types-pkg_resources
+    - types-requests
+    - types-dataclasses
+    - black
     - setuptools                             # [build_platform != target_platform]
-    - ruamel.yaml >=0.15.99,<0.18|0.16.6.*   # [build_platform != target_platform]
+    - ruamel.yaml >=0.15.99,<0.18|0.16.6.*
     - {{ compiler('c') }}  # for mypyc
   host:
     - python
