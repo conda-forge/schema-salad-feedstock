@@ -9,7 +9,7 @@ source:
   sha256: 547bbb05c271d58e00d4e56540bf9e8908f3840eb87529ad9a4678b903f21edd
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
@@ -45,14 +45,15 @@ requirements:
 
 test:
   requires:
-    - pytest <7
+    - pytest <7.2
+    - pytest-xdist
   imports:
     - schema_salad
     - schema_salad.tests
   commands:
     - schema-salad-tool --help
     - schema-salad-doc --help
-    - python -m pytest --pyargs schema_salad
+    - python -m pytest --pyargs schema_salad -vv
 
 about:
   home: https://github.com/common-workflow-language/schema_salad
