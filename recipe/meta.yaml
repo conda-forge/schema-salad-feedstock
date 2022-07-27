@@ -1,4 +1,4 @@
-{% set version = "8.3.20220525163636" %}
+{% set version = "8.3.20220721194857" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: 547bbb05c271d58e00d4e56540bf9e8908f3840eb87529ad9a4678b903f21edd
+  sha256: 438101b276918bb5ad36a8c9a3b4041cf071b15784ac756a1968933893dc6cea
 
 build:
   number: 0
