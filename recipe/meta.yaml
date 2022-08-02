@@ -1,4 +1,4 @@
-{% set version = "8.3.20220717184004" %}
+{% set version = "8.3.20220801194920" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: b979500debe39fd3b213d74a8f5308eba034ce6975ff556d07a71931777b77c3 
+  sha256: 82f7c3bbe15351e4dbe2e2f2a8330240c5da4604f4a54f6c12ed15af0ce85917
 
 build:
   number: 0
@@ -14,7 +14,7 @@ build:
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
-  script: SCHEMA_SALAD_USE_MYPYC=1 MYPYPATH=typeshed {{ PYTHON }} -m pip install . --no-deps -vv
+  script: SCHEMA_SALAD_USE_MYPYC=1 MYPYPATH=mypy-stubs {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
@@ -26,16 +26,17 @@ requirements:
     - types-pkg_resources
     - types-requests
     - types-dataclasses
-    - ruamel.yaml >=0.17.6,<0.18|0.16.6.*
+    - ruamel.yaml >=0.17.6,<0.18
       # ruamel.yaml is needed for the type hints
       # the newer version: 0.15.99 has py.typed, which mypyc needs
     - black  # also needed for type hints
+    - rdflib >=4.2.2,<7.0.0  # more type hints
     - setuptools_scm
   run:
     - python
     - setuptools
     - requests >=1.0
-    - ruamel.yaml >=0.17.6,<0.18|0.16.6.*
+    - ruamel.yaml >=0.17.6,<0.18
     - rdflib >=4.2.2,<7.0.0
     - mistune >=0.8.1,<0.9
     - cachecontrol >=0.11.7,<0.13
