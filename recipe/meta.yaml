@@ -24,10 +24,11 @@ requirements:
   host:
     - python
     - pip
-    - mypy >=0.910 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy >=0.991 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-pkg_resources
     - types-requests
     - types-dataclasses
+    - types-setuptools
     - ruamel.yaml >=0.17.6,<0.18
       # ruamel.yaml is needed for the type hints
       # the newer version: 0.15.99 has py.typed, which mypyc needs
@@ -40,7 +41,7 @@ requirements:
     - requests >=1.0
     - ruamel.yaml >=0.17.6,<0.18
     - rdflib >=4.2.2,<7.0.0
-    - mistune >=0.8.1,<0.9
+    - mistune >=2.0.3,<2.1
     - cachecontrol >=0.11.7,<0.13,!=0.12.12
     - lockfile >=0.9
     - typing_extensions
