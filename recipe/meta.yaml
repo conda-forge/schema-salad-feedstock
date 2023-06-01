@@ -1,4 +1,4 @@
-{% set version = "8.4.20230511084951" %}
+{% set version = "8.4.20230601112322" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: c96b6a81a40f4ee94b7c49416bdb41808428af368494053a33c168e33fbe484d
+  sha256: 8d2c8ac3caf2eb404bdd94a4c2a0e31345c5cc0884801d1c5dc5ca86d18040b4
 
 build:
   number: 0
@@ -42,8 +42,8 @@ requirements:
     - ruamel.yaml >=0.17.6,<0.18
     - rdflib >=4.2.2,<7.0.0
     - mistune >=2.0.3,<2.1
-    - cachecontrol >=0.11.7,<0.13,!=0.12.12
-    - lockfile >=0.9
+    - cachecontrol >=0.13,<0.14
+    - filelock
     - typing_extensions
     - black
 
