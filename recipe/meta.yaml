@@ -1,4 +1,4 @@
-{% set version = "8.4.20230606143604" %}
+{% set version = "8.4.20230808163024" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: f19a3d6614b4afecec93b9c7121d31ee01d8c1aa169b272d41844ca61d3d9af6
+  sha256: 6a2e2fbfa1055f8c9347cb2046ca621be33c6bca1af372c89493c65fbabe29dd
 
 build:
   number: 0
@@ -35,6 +35,7 @@ requirements:
     - black  # also needed for type hints
     - rdflib >=4.2.2,<7.0.0  # more type hints
     - setuptools_scm
+    - importlib_resources >=1.4
   run:
     - python
     - setuptools
@@ -46,11 +47,13 @@ requirements:
     - filelock
     - typing_extensions
     - black
+    - importlib_resources >=1.4
 
 test:
   requires:
-    - pytest <7.3
+    - pytest <7.5
     - pytest-xdist
+    - setuptools
   imports:
     - schema_salad
     - schema_salad.tests
