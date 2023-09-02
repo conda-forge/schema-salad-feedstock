@@ -9,7 +9,7 @@ source:
   sha256: 6a2e2fbfa1055f8c9347cb2046ca621be33c6bca1af372c89493c65fbabe29dd
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
@@ -24,7 +24,7 @@ requirements:
   host:
     - python
     - pip
-    - mypy >=0.991 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==1.4.1 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-pkg_resources
     - types-requests
     - types-dataclasses
