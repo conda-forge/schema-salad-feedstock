@@ -62,7 +62,7 @@ test:
     - python -m pytest --pyargs schema_salad -vv  # [ not aarch64 ]
 
 about:
-  home: https://github.com/common-workflow-language/schema_salad
+  home: https://schema-salad.readthedocs.io/
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE.txt
