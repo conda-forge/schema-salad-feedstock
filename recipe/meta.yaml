@@ -1,4 +1,4 @@
-{% set version = "8.5.20240102191335" %}
+{% set version = "8.5.20240311110950" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: 7d32704f50e3fc6c096dc162084bf00bebce70aa762cb4a897239a64ae00a20c
+  sha256: 76bd1d0792622c12c5882cc8448bb9ce9a6083ca7d0c02e7884f746dd011fedc
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
   host:
     - python
     - pip
-    - mypy ==1.7.0 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==1.9.0 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-pkg_resources
     - types-requests
     - types-dataclasses
@@ -32,25 +32,25 @@ requirements:
     - ruamel.yaml >=0.17.6,<0.19
       # ruamel.yaml is needed for the type hints
       # the newer version: 0.15.99 has py.typed, which mypyc needs
-    - black >=19.10b0 # also needed for type hints
+    - black >=24 # also needed for type hints
     - rdflib >=4.2.2,<8.0.0  # more type hints
     - setuptools_scm >=8.0.4,<9
-    - importlib_resources >=1.4
+    - importlib_resources >=1.4  # [py<39]
   run:
     - python
     - setuptools
     - requests >=1.0
     - ruamel.yaml >=0.17.6,<0.19
     - rdflib >=4.2.2,<8.0.0
-    - mistune >=2.0.3,<2.1
-    - cachecontrol >=0.13,<0.14
+    - mistune >=3,<3.1
+    - cachecontrol >=0.13,<0.15
     - filelock
     - black
-    - importlib_resources >=1.4
+    - importlib_resources >=1.4  # [py<39]
 
 test:
   requires:
-    - pytest <7.5
+    - pytest <9
     - pytest-xdist
     - setuptools
   imports:
@@ -62,7 +62,7 @@ test:
     - python -m pytest --pyargs schema_salad -vv  # [ not aarch64 ]
 
 about:
-  home: https://github.com/common-workflow-language/schema_salad
+  home: https://schema-salad.readthedocs.io/
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE.txt
