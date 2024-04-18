@@ -9,7 +9,7 @@ source:
   sha256: 36da8097ece4cc327d5e1151179efb189043d7cd8d5ce282f5b369ad17647d7b
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
@@ -21,6 +21,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}  # for mypyc
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
