@@ -1,12 +1,12 @@
-{% set version = "8.5.20240410123758" %}
+{% set version = "8.5.20240503091721" %}
 
 package:
   name: schema-salad
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
-  sha256: 36da8097ece4cc327d5e1151179efb189043d7cd8d5ce282f5b369ad17647d7b
+  url: https://pypi.io/packages/source/s/schema-salad/schema_salad-{{ version }}.tar.gz
+  sha256: ce836ffb4cfb340cebc9e7aac6b82c2970e3ca2f25922bc8cbb08ede31433bd1
 
 build:
   number: 0
@@ -21,6 +21,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}  # for mypyc
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
