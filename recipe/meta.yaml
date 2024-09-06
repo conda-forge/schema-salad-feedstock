@@ -37,7 +37,7 @@ requirements:
     - setuptools_scm >=8.0.4,<9
     - importlib_resources >=1.4  # [py<39]
     - filelock # needed for type hints
-    - setuptools >= 50 # build backend
+    - setuptools >=50 # build backend
   run:
     - python
     - setuptools
