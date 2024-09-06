@@ -1,4 +1,4 @@
-{% set version = "8.7.20240820070935" %}
+{% set version = "8.7.20240905150001" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema_salad-{{ version }}.tar.gz
-  sha256: 5f9ef40a35b14bd101f5833fd681c642f07f3d89f79279c63283ad5633bcdaf8
+  sha256: 1753891704aa5b6664cef45ef194ebdf984a84b1f71c7d1d68af61e67d3b0950
 
 build:
   number: 0
@@ -25,7 +25,7 @@ requirements:
   host:
     - python
     - pip
-    - mypy ==1.11.1 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==1.11.2 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-requests
     - types-dataclasses
     - types-setuptools
@@ -37,6 +37,7 @@ requirements:
     - setuptools_scm >=8.0.4,<9
     - importlib_resources >=1.4  # [py<39]
     - filelock # needed for type hints
+    - setuptools >=50 # build backend
   run:
     - python
     - setuptools
