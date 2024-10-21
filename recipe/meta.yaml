@@ -1,4 +1,4 @@
-{% set version = "8.7.20240905150001" %}
+{% set version = "8.7.20241010092723" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/schema-salad/schema_salad-{{ version }}.tar.gz
-  sha256: 1753891704aa5b6664cef45ef194ebdf984a84b1f71c7d1d68af61e67d3b0950
+  sha256: f0f15890402531bec4bb18a5dfbb592dae4413c71e444f82ada95274b83d34bc
 
 build:
   number: 0
@@ -38,6 +38,7 @@ requirements:
     - importlib_resources >=1.4  # [py<39]
     - filelock # needed for type hints
     - setuptools >=50 # build backend
+    - cachecontrol-with-filecache >=0.13.1,<0.15  # needed for type hints
   run:
     - python
     - setuptools
