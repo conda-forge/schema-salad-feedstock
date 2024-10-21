@@ -38,6 +38,7 @@ requirements:
     - importlib_resources >=1.4  # [py<39]
     - filelock # needed for type hints
     - setuptools >=50 # build backend
+    - cachecontrol-with-filecache >=0.13.1,<0.15  # needed for type hints
   run:
     - python
     - setuptools
