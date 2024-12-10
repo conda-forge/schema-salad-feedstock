@@ -10,11 +10,10 @@ source:
 
 build:
   number: 0
-  skip: true  # [py2k or win]
+  skip: true  # [py2k]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
-  script: SCHEMA_SALAD_USE_MYPYC=1 MYPYPATH=mypy-stubs {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
