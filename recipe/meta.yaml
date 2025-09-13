@@ -9,7 +9,7 @@ source:
   sha256: 58e3d02ea1773259987f9c74a99974c52ffa3c18ad02a2dd60642249c257a2e4
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
