@@ -25,7 +25,7 @@ requirements:
   host:
     - python
     - pip
-    - mypy ==1.17.0 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==1.18.1 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-requests
     - types-dataclasses
     - types-setuptools
