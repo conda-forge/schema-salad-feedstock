@@ -1,4 +1,4 @@
-{% set version = "8.9.20250723145140" %}
+{% set version = "8.9.20251031145656" %}
 
 package:
   name: schema-salad
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/schema-salad/schema_salad-{{ version }}.tar.gz
-  sha256: 58e3d02ea1773259987f9c74a99974c52ffa3c18ad02a2dd60642249c257a2e4
+  sha256: 2e1fd52cf372eb42917c3034d6d5c30b4e151e6e7a749aac17d172d696a41307
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
@@ -25,7 +25,7 @@ requirements:
   host:
     - python
     - pip
-    - mypy ==1.18.1 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==1.18.2 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-requests
     - types-dataclasses
     - types-setuptools
@@ -34,7 +34,7 @@ requirements:
       # the newer version: 0.15.99 has py.typed, which mypyc needs
     - black >=24 # also needed for type hints
     - rdflib >=4.2.2,<8.0.0  # more type hints
-    - setuptools_scm >=8.0.4,<9
+    - setuptools_scm >=8.0.4,<10
     - filelock # needed for type hints
     - setuptools >=50 # build backend
     - cachecontrol-with-filecache >=0.14.0,<0.15  # needed for type hints
@@ -43,7 +43,7 @@ requirements:
     - requests >=1.0
     - ruamel.yaml >=0.17.6,<0.19
     - rdflib >=4.2.2,<8.0.0
-    - mistune >=3,<3.1
+    - mistune >=3,<3.2
     - cachecontrol-with-filecache >=0.14.0,<0.15
     - mypy_extensions
     - filelock
@@ -60,7 +60,7 @@ test:
   commands:
     - schema-salad-tool --help
     - schema-salad-doc --help
-    - python -m pytest --pyargs schema_salad -vv  # [ not aarch64 ]
+    - python -m pytest --pyargs schema_salad -vv -n auto  # [ not aarch64 ]
 
 about:
   home: https://schema-salad.readthedocs.io/
