@@ -60,7 +60,7 @@ test:
   commands:
     - schema-salad-tool --help
     - schema-salad-doc --help
-    - python -m pytest --pyargs schema_salad -vv  # [ not aarch64 ]
+    - python -m pytest --pyargs schema_salad -vv -n auto  # [ not aarch64 ]
 
 about:
   home: https://schema-salad.readthedocs.io/
