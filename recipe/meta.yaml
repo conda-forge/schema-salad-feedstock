@@ -25,7 +25,7 @@ requirements:
   host:
     - python
     - pip
-    - mypy ==1.18.1 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==1.18.2 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-requests
     - types-dataclasses
     - types-setuptools
@@ -34,7 +34,7 @@ requirements:
       # the newer version: 0.15.99 has py.typed, which mypyc needs
     - black >=24 # also needed for type hints
     - rdflib >=4.2.2,<8.0.0  # more type hints
-    - setuptools_scm >=8.0.4,<9
+    - setuptools_scm >=8.0.4,<10
     - filelock # needed for type hints
     - setuptools >=50 # build backend
     - cachecontrol-with-filecache >=0.14.0,<0.15  # needed for type hints
@@ -43,7 +43,7 @@ requirements:
     - requests >=1.0
     - ruamel.yaml >=0.17.6,<0.19
     - rdflib >=4.2.2,<8.0.0
-    - mistune >=3,<3.1
+    - mistune >=3,<3.2
     - cachecontrol-with-filecache >=0.14.0,<0.15
     - mypy_extensions
     - filelock
