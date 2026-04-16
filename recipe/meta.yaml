@@ -1,4 +1,4 @@
-{% set version = "8.9.20251102115403" %}
+{% set version = "8.9.20260327095315" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/schema-salad/schema_salad-{{ version }}.tar.gz
-  sha256: 66b535d8f18ed16436aa400f785b0acca9d757064aaefd311dbe2043c1737286
+  sha256: 879bc569b2d0055782c0afb2d98f1e2fc1ab586484fa4f0438ffc8febc585997
 
 build:
   number: 0
@@ -14,7 +14,9 @@ build:
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
-  script: SCHEMA_SALAD_USE_MYPYC=1 MYPYPATH=mypy-stubs {{ PYTHON }} -m pip install . --no-deps -vv
+  script: SCHEMA_SALAD_USE_MYPYC=0 MYPYPATH=mypy-stubs {{ PYTHON }} -m pip install . --no-deps -vv
+  # TODO: SCHEMA_SALAD_USE_MYPYC=1 when https://github.com/python/mypy/issues/21133
+  # is fixed, released, and available in conda
 
 requirements:
   build:
@@ -22,36 +24,39 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}  # for mypyc
     - {{ stdlib("c") }}
+    - mypy ==1.19.1 # for a usable python-librt
   host:
     - python
     - pip
-    - mypy ==1.18.2 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==1.19.1 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-requests
     - types-dataclasses
     - types-setuptools
-    - ruamel.yaml >=0.17.6,<0.19
+    - ruamel.yaml >=0.17.6,<0.20
       # ruamel.yaml is needed for the type hints
       # the newer version: 0.15.99 has py.typed, which mypyc needs
     - black >=24 # also needed for type hints
     - rdflib >=4.2.2,<8.0.0  # more type hints
-    - setuptools_scm >=8.0.4,<10
+    - setuptools_scm >=8.0.4,<11
     - filelock # needed for type hints
     - setuptools >=50 # build backend
     - cachecontrol-with-filecache >=0.14.0,<0.15  # needed for type hints
+    - rich-argparse
   run:
     - python
     - requests >=1.0
-    - ruamel.yaml >=0.17.6,<0.19
+    - ruamel.yaml >=0.17.6,<0.20
     - rdflib >=4.2.2,<8.0.0
-    - mistune >=3,<3.2
+    - mistune >=3,<3.3
     - cachecontrol-with-filecache >=0.14.0,<0.15
     - mypy_extensions
     - filelock
+    - rich-argparse
     - black
 
 test:
   requires:
-    - pytest <9
+    - pytest <9.1
     - pytest-xdist
     - setuptools
   imports:
