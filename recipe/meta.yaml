@@ -14,7 +14,9 @@ build:
   entry_points:
     - schema-salad-tool=schema_salad.main:main
     - schema-salad-doc=schema_salad.makedoc:main
-  script: SCHEMA_SALAD_USE_MYPYC=1 MYPYPATH=mypy-stubs {{ PYTHON }} -m pip install . --no-deps -vv
+  script: SCHEMA_SALAD_USE_MYPYC=0 MYPYPATH=mypy-stubs {{ PYTHON }} -m pip install . --no-deps -vv
+  # TODO: SCHEMA_SALAD_USE_MYPYC=1 when https://github.com/python/mypy/issues/21133
+  # is fixed, released, and available in conda
 
 requirements:
   build:
