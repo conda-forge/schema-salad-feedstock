@@ -24,11 +24,11 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}  # for mypyc
     - {{ stdlib("c") }}
-    - mypy ==1.19.1 # for a usable python-librt
+    - mypy ==2.1.0 # for a usable python-librt
   host:
     - python
     - pip
-    - mypy ==1.19.1 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==2.1.0 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-requests
     - types-dataclasses
     - types-setuptools
