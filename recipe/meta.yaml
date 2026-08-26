@@ -1,4 +1,4 @@
-{% set version = "8.10.20260814121804" %}
+{% set version = "8.10.20260825112551" %}
 
 package:
   name: schema-salad
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/s/schema-salad/schema_salad-{{ version }}.tar.gz
-  sha256: fdb1a52c8d0ffa6f984d47b516a3bff882c7aa4a4a957408cad42092cad4a923
+  sha256: 426af8bae86b1b8026469968bcd0802e6c61fd6c44c6b1f77d48467164a6ac74
 
 build:
   number: 0
