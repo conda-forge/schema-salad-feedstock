@@ -9,7 +9,7 @@ source:
   sha256: 426af8bae86b1b8026469968bcd0802e6c61fd6c44c6b1f77d48467164a6ac74
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py2k or win]
   entry_points:
     - schema-salad-tool=schema_salad.main:main
@@ -47,7 +47,7 @@ requirements:
     - requests >=1.0
     - ruamel.yaml >=0.17.6,<0.20
     - rdflib >=4.2.2,<8.0.0
-    - mistune >=3,<3.3
+    - mistune >=3.3.0,<3.4
     - cachecontrol-with-filecache >=0.14.0,<0.15
     - mypy_extensions
     - filelock
