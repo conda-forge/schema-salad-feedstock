@@ -48,6 +48,7 @@ requirements:
     - setuptools >=50  # build backend
     - cachecontrol-with-filecache >=0.14.0,<0.15  # needed for type hints
     - rich-argparse
+    - mistune >=3.3.0,<3.4
   run:
     - python
     - requests >=1.0
