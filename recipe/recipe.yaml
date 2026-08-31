@@ -17,10 +17,8 @@ build:
       - schema-salad-tool = schema_salad.main:main
       - schema-salad-doc = schema_salad.makedoc:main
   script:
-    # TODO: SCHEMA_SALAD_USE_MYPYC=1 when https://github.com/python/mypy/issues/21133
-    # is fixed, released, and available in conda
     env:
-      SCHEMA_SALAD_USE_MYPYC: "0"
+      SCHEMA_SALAD_USE_MYPYC: "1"
       MYPYPATH: mypy-stubs
     content: ${{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -32,11 +30,11 @@ requirements:
         - cross-python_${{ target_platform }}
     - ${{ compiler('c') }}  # for mypyc
     - ${{ stdlib('c') }}
-    - mypy ==2.1.0  # for a usable python-librt
+    - mypy ==2.3.1
   host:
     - python
     - pip
-    - mypy ==2.1.0  # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
+    - mypy ==2.3.1 # setup.py needs this when SCHEMA_SALAD_USE_MYPYC=1
     - types-requests
     - types-dataclasses
     - types-setuptools
@@ -90,3 +88,6 @@ about:
 extra:
   recipe-maintainers:
     - croth1
+    - chapmanb
+    - pvanheus
+    - mr-c
