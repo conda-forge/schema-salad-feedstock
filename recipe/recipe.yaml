@@ -10,7 +10,7 @@ source:
   sha256: 426af8bae86b1b8026469968bcd0802e6c61fd6c44c6b1f77d48467164a6ac74
 
 build:
-  number: 1
+  number: 2
   skip: win
   python:
     entry_points:
