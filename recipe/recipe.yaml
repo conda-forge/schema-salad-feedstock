@@ -1,5 +1,5 @@
 context:
-  version: "8.10.20260825112551"
+  version: "8.10.20261106141337"
 
 package:
   name: schema-salad
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/s/schema-salad/schema_salad-${{ version }}.tar.gz
-  sha256: 426af8bae86b1b8026469968bcd0802e6c61fd6c44c6b1f77d48467164a6ac74
+  sha256: cf13b3dafce841c8426899f204ef033c8270148bce3d4e181c44182c35605e7c
 
 build:
-  number: 2
+  number: 0
   skip: win
   python:
     entry_points:
